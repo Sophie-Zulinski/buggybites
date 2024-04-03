@@ -1,6 +1,6 @@
 'use client';
 import Error from '@/components/error/Error';
-import apiHostUrl from '@/utils/apiHostUrl';
+import apiHostUrl from '@/utils/apihosturl';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
