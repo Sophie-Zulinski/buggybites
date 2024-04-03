@@ -1,6 +1,6 @@
 'use client';
 import Error from '@/components/error/Error';
-import apiHostUrl from '@/utils/apihosturl';
+import apiHostURL from '@/utils/apiHostURL';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -25,7 +25,7 @@ export default function Register() {
 
     try {
       setLoading(true);
-      const res = await fetch(apiHostUrl + '/api/register', {
+      const res = await fetch(apiHostURL + '/api/register', {
         method: 'post',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
