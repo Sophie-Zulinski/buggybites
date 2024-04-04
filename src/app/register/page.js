@@ -1,5 +1,6 @@
 'use client';
 import Error from '@/components/error/Error';
+import apiHostURL from '@/utils/apiHostURL';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import { useState } from 'react';
@@ -24,17 +25,14 @@ export default function Register() {
 
     try {
       setLoading(true);
-      const res = await fetch(
-        'https://buggybites-v01-g174.vercel.app/api/register',
-        {
-          method: 'post',
-          headers: { 'content-type': 'application/json' },
-          body: JSON.stringify({
-            username: username.trim(),
-            password: password.trim(),
-          }),
-        },
-      );
+      const res = await fetch(apiHostURL + '/api/register', {
+        method: 'post',
+        headers: { 'content-type': 'application/json' },
+        body: JSON.stringify({
+          username: username.trim(),
+          password: password.trim(),
+        }),
+      });
 
       if (!res.ok) {
         const error = await res.json();
