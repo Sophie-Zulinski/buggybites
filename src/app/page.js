@@ -55,7 +55,7 @@ export default async function Home() {
                 <div className="card-content">
                   <Link
                     className={styles.link}
-                    href={`http://localhost:3000/restaurants/${restaurant?._id}`}
+                    href={apiHostURL + `/restaurants/${restaurant?._id}`}
                   >
                     Weiterlesen
                   </Link>
