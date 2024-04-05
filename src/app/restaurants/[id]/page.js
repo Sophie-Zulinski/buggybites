@@ -1,24 +1,21 @@
+import apiHostURL from '@/utils/apiHostURL';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
 import Singlerestaurant from './Singlerestaurant';
 
-export default async function Restaurant({ params }) {
-  const getRestaurant = async () => {
-    try {
-      const res = await fetch(apiHostURL + `/api/restaurants/${params.id}`, {
-        cache: 'no-cache',
-      });
-      const data = await res.json();
-      return data;
-    } catch (error) {
-      console.log('error => ', error);
-    }
-  };
+const getRestaurant = async (id) => {
+  const res = await fetch(apiHostURL + '/api/restaurants/' + id, {
+    cache: 'no-store',
+  });
+  if (!res.ok) {
+    return notFound();
+  }
+  return res.json();
+};
 
-  const data = await getRestaurant();
-  return (
-    <div>
-      <Singlerestaurant data={data} />
-    </div>
-  );
+export default async function Post({ params }) {
+  const { id } = params;
+  const restaurant = await getRestaurant(id);
+
+  return <Singlerestaurant restaurant={restaurant} />;
 }
-
-//<TestUpdateProfile />
