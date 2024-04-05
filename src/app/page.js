@@ -1,95 +1,71 @@
-import Image from 'next/image';
-import styles from './page.module.css';
+import apiHostURL from '@/utils/apiHostURL';
+import Link from 'next/link';
+import styles from './page.module.scss';
 
-export default function Home() {
+const getPosts = async () => {
+  const res = await fetch(apiHostURL + '/api/restaurants', {
+    cache: 'no-store',
+  });
+  if (!res.ok) {
+    return notFound();
+  }
+  return res.json();
+};
+
+export default async function Home() {
+  const restaurants = await getPosts();
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.js..</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+    <>
+      <main>
+        <div className={styles.backgroundimg}>
+          {' '}
+          <div className={styles.backgroundimgtext}>
+            <h1>Willkommen bei BuggyBites</h1>
+            <div>
+              Finde eine Auswahl an kinderwagenfreundlichen Lokalen in Wien.
+              Melde dich an um deine Favoriten zu speichern un die Lokale zu
+              bewerten.
+            </div>
+            <button>Login</button>
+          </div>
         </div>
-      </div>
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API..</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore starter templates for Next.js.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+        <div className={styles.title}>
+          <h2>Alle Lokale</h2>
+        </div>
+        <div className={styles.grid}>
+          {restaurants.map((restaurant) => (
+            <div className={styles.cardtop} key={restaurant._id}>
+              {' '}
+              <h2 className={styles.cardheader}>
+                {restaurant.name} <span></span>
+              </h2>
+              <div className="card" key={restaurant._id}>
+                <img
+                  src={
+                    restaurant?.images?.length > 0
+                      ? restaurant.images[0].url
+                      : '/public/next.svg'
+                  }
+                  alt={restaurant?.name}
+                  height={120}
+                  width={150}
+                />
+                <div className="card-content">
+                  <Link
+                    className={styles.link}
+                    href={`http://localhost:3000/restaurants/${restaurant?._id}`}
+                  >
+                    Weiterlesen
+                  </Link>
+                  <p>Kategorien: {restaurant.category}</p>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </main>
+    </>
   );
 }

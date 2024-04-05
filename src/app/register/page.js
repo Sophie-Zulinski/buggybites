@@ -25,7 +25,7 @@ export default function Register() {
 
     try {
       setLoading(true);
-      const res = await fetch('https://buggybites-03.vercel.app/api/register', {
+      const res = await fetch(apiHostURL + '/api/register', {
         method: 'post',
         headers: { 'content-type': 'application/json' },
         body: JSON.stringify({
