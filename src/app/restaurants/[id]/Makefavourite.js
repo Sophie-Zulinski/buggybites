@@ -19,23 +19,20 @@ export default function MakeFavourite({ restaurant }) {
       <button
         className={styles.heartbtn}
         onClick={async () => {
-          const response = await fetch(
-            'http://localhost:3000/api/me/favourites/',
-            {
-              method: 'PUT',
-              headers: {
-                'Content-Type': 'application/json',
+          const response = await fetch(apiHostURL + '/api/me/favourites/', {
+            method: 'PUT',
+            headers: {
+              'Content-Type': 'application/json',
 
-                cache: 'no-store',
-              },
-              body: JSON.stringify({
-                restaurantId: restaurant._id,
-                restaurantName: restaurant.name,
-                restaurantPic: restaurant.images[0].url,
-                userId: session.user._id,
-              }),
+              cache: 'no-store',
             },
-          );
+            body: JSON.stringify({
+              restaurantId: restaurant._id,
+              restaurantName: restaurant.name,
+              restaurantPic: restaurant.images[0].url,
+              userId: session.user._id,
+            }),
+          });
 
           const data = await response.json();
           console.log('datauser', data);
