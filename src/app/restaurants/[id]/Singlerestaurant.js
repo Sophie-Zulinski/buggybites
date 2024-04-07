@@ -9,7 +9,7 @@ export default function SingleRestaurant({ restaurant }) {
     <>
       <img
         className="headerimg"
-        src="https://www.diefruehstueckerinnen.at/wp-content/uploads/2024/03/kaffeeamt-wien-1020-fruehstueck-header.jpg"
+        src="https://res.cloudinary.com/dtz9u2nae/image/upload/v1712491368/kaffeeamt-wien-1020-fruehstueck-header_cgikkl.jpg"
         alt="pic"
       />
       <main>
