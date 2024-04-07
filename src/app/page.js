@@ -27,7 +27,9 @@ export default async function Home() {
               Melde dich an um deine Favoriten zu speichern un die Lokale zu
               bewerten.
             </div>
-            <button>Login</button>
+            <Link className={styles.btn} href="/login">
+              Login
+            </Link>
           </div>
         </div>
 

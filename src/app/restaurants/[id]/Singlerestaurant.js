@@ -1,12 +1,9 @@
 'use client';
 
-import { useSession } from 'next-auth/react';
 import StarRatings from 'react-star-ratings';
 import styles from './restaurantdetail.module.scss';
 
 export default function SingleRestaurant({ restaurant }) {
-  const session = useSession();
-  console.log('testusername', session.data.user.username);
   return (
     <>
       <img

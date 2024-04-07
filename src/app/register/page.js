@@ -40,7 +40,7 @@ export default function Register() {
         return setError(error.message);
       }
 
-      router.push('/');
+      router.push('/login');
     } catch (err) {
       setLoading(false);
       setError('Error in DB, pls try again later!');

@@ -1,5 +1,6 @@
 import './globals.scss';
 import { AuthProvider } from '@/components/authprovider/Authprovider';
+import Header from '@/components/layout/header/Header';
 
 export const metadata = {
   title: 'BuggyBites',
@@ -21,7 +22,10 @@ export default function RootLayout({ children }) {
       </head>
 
       <body>
-        <AuthProvider>{children}</AuthProvider>
+        <AuthProvider>
+          <Header />
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );
