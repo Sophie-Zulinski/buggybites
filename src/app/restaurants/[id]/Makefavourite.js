@@ -1,5 +1,6 @@
 'use client';
 
+import apiHostURL from '@/utils/apiHostURL';
 import { useSession } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import toast from 'react-hot-toast';
