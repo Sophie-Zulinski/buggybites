@@ -1,6 +1,7 @@
 'use client';
 
 import StarRatings from 'react-star-ratings';
+import MakeFavourite from './Makefavourite';
 import styles from './restaurantdetail.module.scss';
 
 export default function SingleRestaurant({ restaurant }) {
@@ -17,6 +18,8 @@ export default function SingleRestaurant({ restaurant }) {
             {restaurant.name} <span> </span>
           </h2>
           <div className={styles.detailscontainer}>
+            TEST
+            <MakeFavourite restaurant={restaurant} />
             <div
               className={styles.details}
               dangerouslySetInnerHTML={{ __html: restaurant.description }}
