@@ -8,6 +8,7 @@ export default function Login() {
   const router = useRouter();
   const session = useSession();
   const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
 
   const submitHandler = async (e) => {
     e.preventDefault();
@@ -44,16 +45,36 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <form onSubmit={submitHandler}>
-        <h1>Login</h1>
-        <input type="text" placeholder="Enter an username..." />
-        <input type="password" placeholder="Enter a password..." />
+    <main>
+      <div className="container">
+        <form onSubmit={submitHandler}>
+          <h1>Login</h1>
+          <div className="group">
+            <input type="text" required />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label>Email</label>
+          </div>
 
-        {error && <Error message={error} setError={setError} />}
+          <div className="group">
+            <input type="password" required />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label>Passwort</label>
+          </div>
+          {error && <Error message={error} setError={setError} />}
+          <button id="login_button" type="submit" disabled={loading}>
+            {loading ? <p>Loading..</p> : 'LOGIN'}
+          </button>
 
-        <button>Login</button>
-      </form>
-    </div>
+          <div className="mt-3 mb-4">
+            <a href="/register" className="float-end">
+              {' '}
+              Neuer Benutzer? Hier registrieren{' '}
+            </a>
+          </div>
+        </form>
+      </div>
+    </main>
   );
 }

@@ -1,0 +1,77 @@
+$primary-color: rgb(255, 100, 100);
+.footer {
+  bottom: 0;
+  background: rgb(240, 239, 234);
+  border-top: solid $primary-color;
+  width: 100vw;
+  max-width: 100vw;
+  overflow-x: hidden;
+}
+
+/* Bottom - copyright and legal stuff */
+
+.info {
+  padding: 1rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgb(240, 239, 234);
+}
+
+/* Top - pages, email newsletter form ... */
+
+.footer .top {
+  padding: 2rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: row;
+}
+
+.footer .top .pages {
+  display: flex;
+  flex-direction: row;
+}
+
+.footer .top .pages ul {
+  margin: 20px;
+}
+
+footer .top .pages ul li {
+  margin: 5px;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .footer .top {
+    flex-direction: column;
+  }
+  .footer .top .newsletter {
+    padding-top: 1rem;
+  }
+  .footer .top .pages ul {
+    margin: 10px;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .footer .top .pages {
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+
+  .footer .info {
+    flex-direction: column;
+  }
+
+  f.ooter .info > .copyright {
+    margin-top: 10px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  .footer .top .pages {
+    justify-content: center;
+    flex-direction: column;
+  }
+}
