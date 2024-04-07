@@ -14,3 +14,17 @@ export const GET = async (request, { params }) => {
     return NextResponse.json('Database Error', { status: 400 });
   }
 };
+
+export const PUT = async (request, { params }) => {
+  const { id } = params;
+  const data = await request.json();
+  try {
+    await connectToDB();
+
+    const restaurant = await Restaurant.findByIdAndUpdate(id, data);
+
+    return NextResponse.json(restaurant, { status: 200 });
+  } catch (err) {
+    return NextResponse.json('Database Error', { status: 400 });
+  }
+};

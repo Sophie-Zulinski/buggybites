@@ -1,1 +1,1 @@
-export default 'https://buggybites-03.vercel.app';
+export default 'http://localhost:3000';

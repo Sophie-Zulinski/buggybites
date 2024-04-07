@@ -34,7 +34,9 @@ export const PUT = async (req) => {
     await user.save();
     await restaurant.save();
 
-    return NextResponse.json(user, restaurant, isFavourite, { status: 200 });
+    return NextResponse.json(user, restaurant, isFavourite, {
+      status: 200,
+    });
   } catch (err) {
     return NextResponse.json('Database Error', { status: 400 });
   }
