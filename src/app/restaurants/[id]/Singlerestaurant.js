@@ -18,7 +18,6 @@ export default function SingleRestaurant({ restaurant }) {
             {restaurant.name} <span> </span>
           </h2>
           <div className={styles.detailscontainer}>
-            TEST
             <MakeFavourite restaurant={restaurant} />
             <div
               className={styles.details}

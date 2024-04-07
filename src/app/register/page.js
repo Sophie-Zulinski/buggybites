@@ -56,24 +56,28 @@ export default function Register() {
   }
 
   return (
-    <div className={styles.container}>
-      <form className={styles.form} onSubmit={submitHandler}>
-        <h1 className={styles.title}>Register</h1>
-        <input
-          className={styles.input}
-          type="text"
-          placeholder="Enter an username..."
-        />
-        <input
-          className={styles.input}
-          type="password"
-          placeholder="Enter a password..."
-        />
-        {error && <Error message={error} setError={setError} />}
-        <button className={styles.button} disabled={loading ? true : false}>
-          {loading ? 'Loading...' : 'Register'}
-        </button>
-      </form>
-    </div>
+    <main>
+      <div className="container">
+        <form className={styles.form} onSubmit={submitHandler}>
+          <h1>Anmeldung</h1>
+          <div className="group">
+            <input type="text" required />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label>Name</label>
+          </div>
+          <div className="group">
+            <input type="password" required />
+            <span className="highlight"></span>
+            <span className="bar"></span>
+            <label>Passwort</label>
+          </div>
+          {error && <Error message={error} setError={setError} />}
+          <button disabled={loading ? true : false}>
+            {loading ? 'Loading...' : 'Register'}
+          </button>
+        </form>
+      </div>
+    </main>
   );
 }

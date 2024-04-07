@@ -41,6 +41,17 @@ footer .top .pages ul li {
   margin: 5px;
 }
 
+.social {
+  margin: 2rem;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.social i {
+  margin: 2rem;
+}
+
 /* Responsive adjustments */
 @media screen and (max-width: 768px) {
   .footer .top {

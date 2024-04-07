@@ -1,0 +1,89 @@
+$primary-color: rgb(255, 100, 100);
+.title {
+  border-bottom: solid $primary-color;
+}
+.link {
+  color: $primary-color;
+  padding: 0.5rem;
+  margin-top: 1.1rem;
+  gap: 1.1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(25%, auto));
+  max-width: 100%;
+}
+
+.cardtop {
+  background-color: white;
+  height: 320px;
+  width: 250px;
+  border-top-right-radius: 2rem;
+  margin: 1.1rem;
+}
+
+.cardheader {
+  padding: 1.1rem;
+  font-size: 18px;
+}
+/* Mobile */
+@media (max-width: 1000px) {
+  .content {
+    padding: 4rem;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    margin-bottom: 120px;
+    max-width: 278px;
+    text-align: center;
+  }
+}
+
+.backgroundimg {
+  background-image: url('https://www.diefruehstueckerinnen.at/wp-content/uploads/2024/03/kaffeeamt-wien-1020-fruehstueck-header.jpg');
+  box-shadow: 0 0 0px rgba(0, 0, 0, 0.12);
+  height: 350px;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  color: #fff;
+  width: 100%;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.backgroundimgtext {
+  margin: 0 auto;
+  position: absolute;
+  height: 350px;
+  width: 350px;
+  color: white;
+  background-color: #739667;
+  padding: 20px;
+}
+
+/* Tablet and Smaller Desktop */
+@media (min-width: 1000px) and (max-width: 1400px) {
+  .grid {
+    grid-template-columns: repeat(2, 50%);
+  }
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+@media (max-width: 700px) {
+  .backgroundimg,
+  .backgroundimgtext {
+    width: 250px;
+  }
+}

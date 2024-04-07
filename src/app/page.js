@@ -1,6 +1,7 @@
 import apiHostURL from '@/utils/apiHostURL';
 import Link from 'next/link';
 import styles from './page.module.scss';
+import MakeFavourite from './restaurants/[id]/Makefavourite';
 
 const getPosts = async () => {
   const res = await fetch(apiHostURL + '/api/restaurants', {
@@ -41,7 +42,11 @@ export default async function Home() {
             <div className={styles.cardtop} key={restaurant._id}>
               {' '}
               <h2 className={styles.cardheader}>
-                {restaurant.name} <span></span>
+                {restaurant.name}{' '}
+                <span>
+                  {' '}
+                  <MakeFavourite restaurant={restaurant} />
+                </span>
               </h2>
               <div className="card" key={restaurant._id}>
                 <img
