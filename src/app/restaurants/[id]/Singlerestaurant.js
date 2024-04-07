@@ -15,10 +15,13 @@ export default function SingleRestaurant({ restaurant }) {
       <main>
         <div className="containerdetails">
           <h2>
-            {restaurant.name} <span> </span>
+            {restaurant.name}{' '}
+            <span>
+              {' '}
+              <MakeFavourite restaurant={restaurant} />{' '}
+            </span>
           </h2>
           <div className={styles.detailscontainer}>
-            <MakeFavourite restaurant={restaurant} />
             <div
               className={styles.details}
               dangerouslySetInnerHTML={{ __html: restaurant.description }}

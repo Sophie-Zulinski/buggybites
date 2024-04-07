@@ -13,6 +13,7 @@ $primary-color: rgb(255, 100, 100);
   display: grid;
   grid-template-columns: repeat(3, minmax(25%, auto));
   max-width: 100%;
+  gap: 10rem;
 }
 
 .cardtop {

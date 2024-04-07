@@ -46,7 +46,7 @@ export default function Login() {
 
   return (
     <main>
-      <div className="container">
+      <div className="containerdetails">
         <form onSubmit={submitHandler}>
           <h1>Login</h1>
           <div className="group">

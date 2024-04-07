@@ -36,5 +36,9 @@ export default async function Profile({ params }) {
   };
   const data = await getProfile();
   console.log('datamepage', data);
-  return <ShowUser data={data} />;
+  return (
+    <>
+      <ShowUser data={data} />
+    </>
+  );
 }

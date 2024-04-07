@@ -5,7 +5,9 @@ export const dynamic = 'force-dynamic';
 const ShowUser = ({ data }) => {
   return (
     <main>
-      <h2>Merkliste:</h2>
+      <div className={styles.title}>
+        <h2>Merkliste</h2>
+      </div>
       <div className={styles.grid}>
         {data.favourites.map((restaurant) => (
           <div className={styles.cardtop} key={restaurant.restaurantId}>

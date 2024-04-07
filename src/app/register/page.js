@@ -57,7 +57,7 @@ export default function Register() {
 
   return (
     <main>
-      <div className="container">
+      <div className="containerdetails">
         <form className={styles.form} onSubmit={submitHandler}>
           <h1>Anmeldung</h1>
           <div className="group">
