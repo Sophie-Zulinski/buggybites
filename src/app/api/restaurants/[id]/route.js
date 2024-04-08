@@ -7,7 +7,7 @@ export const GET = async (request, { params }) => {
   try {
     await connectToDB();
 
-    const data = await Restaurant.findById(id);
+    const data = await Restaurant.findById(id).populate('reviews.user');
 
     return NextResponse.json(data, { status: 200 });
   } catch (err) {
