@@ -68,13 +68,10 @@ export default function Header() {
     <nav className={styles.navbar}>
       <div className={styles['nav-container']}>
         <div className={styles['nav-logo']}>
-          <Link href="/">Home</Link>
+          <Link href="/">BuggyBites</Link>
         </div>
         <ul className={click ? styles['nav-menuactive'] : styles['nav-menu']}>
           {' '}
-          <li className={styles['nav-item']}>
-            <Link href="/">Detailsuche</Link>
-          </li>
           <li className={styles['nav-item']}>
             <Link href="/">Info</Link>
           </li>

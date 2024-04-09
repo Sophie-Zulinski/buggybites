@@ -18,55 +18,60 @@ export default function NewReview({ restaurantId }) {
 
   return (
     <>
-      <div>
-        {' '}
-        <StarRatings
-          rating={rating}
-          starHoverColor="rgb(255, 100, 100)"
-          numberOfStars={5}
-          name="rating"
-          starDimension="25px"
-          changeRating={(e) => setRating(e)}
-        />
-      </div>
+      {' '}
+      {session ? (
+        <>
+          <div>
+            {' '}
+            <StarRatings
+              rating={rating}
+              starHoverColor="rgb(255, 100, 100)"
+              numberOfStars={5}
+              name="rating"
+              starDimension="25px"
+              changeRating={(e) => setRating(e)}
+            />
+          </div>
+          <textarea
+            className={styles.textarea}
+            id="review_field"
+            placeholder="Ihre Bewertung"
+            value={comment}
+            onChange={(e) => setComment(e.target.value)}
+          ></textarea>
+          <button
+            onClick={async () => {
+              const response = await fetch(apiHostURL + '/api/reviews', {
+                method: 'PUT',
+                headers: {
+                  'Content-Type': 'application/json',
+                },
 
-      <textarea
-        className={styles.textarea}
-        id="review_field"
-        placeholder="Ihre Bewertung"
-        value={comment}
-        onChange={(e) => setComment(e.target.value)}
-      ></textarea>
+                body: JSON.stringify({
+                  rating,
+                  comment,
+                  restaurantId,
+                  userId: session.user._id,
+                }),
+              });
 
-      <button
-        onClick={async () => {
-          const response = await fetch(apiHostURL + '/api/reviews', {
-            method: 'PUT',
-            headers: {
-              'Content-Type': 'application/json',
-            },
+              const data = await response.json();
 
-            body: JSON.stringify({
-              rating,
-              comment,
-              restaurantId,
-              userId: session.user._id,
-            }),
-          });
+              if (data.error) {
+                setError(data.error);
+                toast(error);
+                return;
+              }
 
-          const data = await response.json();
-
-          if (data.error) {
-            setError(data.error);
-            toast(error);
-            return;
-          }
-
-          router.refresh();
-        }}
-      >
-        Abschicken
-      </button>
+              router.refresh();
+            }}
+          >
+            Abschicken
+          </button>
+        </>
+      ) : (
+        ''
+      )}
     </>
   );
 }

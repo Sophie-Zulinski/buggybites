@@ -6,62 +6,59 @@ export default function Footer() {
       <div className={styles.top}>
         <div className={styles.pages}>
           <ul>
-            <h3>Brand Name</h3>
+            <h3>Buggy Bites</h3>
             <li>
               <a href="#">Home</a>
             </li>
             <li>
-              <a href="#">Catalog</a>
+              <a href="#">Über uns</a>
             </li>
+
             <li>
-              <a href="#">Search</a>
-            </li>
-            <li>
-              <a href="#">About</a>
-            </li>
-            <li>
-              <a href="#">Contact</a>
+              <a href="#">Karriere</a>
             </li>
           </ul>
 
           <ul>
-            <h3>Careers</h3>
+            <h3>Kategorien</h3>
             <li>
-              <a href="#">Apply Online</a>
+              <a href="#">Hotels</a>
             </li>
             <li>
-              <a href="#">Available Positions</a>
-            </li>
-          </ul>
-
-          <ul>
-            <h3>About Us</h3>
-            <li>
-              <a href="#">Meet Our Team</a>
+              <a href="#">Frühstück</a>
             </li>
             <li>
-              <a href="#">Our Responsibilities</a>
+              <a href="#">Mittagessen</a>
             </li>
             <li>
-              <a href="#">Our Codes</a>
-            </li>
-            <li>
-              <a href="#">Our Values</a>
+              <a href="#">Gastgarten</a>
             </li>
           </ul>
           <ul>
-            <h3>Restaurants</h3>
+            <h3>Bezirke</h3>
             <li>
-              <a href="#">Meet Our Team</a>
+              <a href="#">1010</a>
             </li>
             <li>
-              <a href="#">Our Responsibilities</a>
+              <a href="#">1020</a>
             </li>
             <li>
-              <a href="#">Our Codes</a>
+              <a href="#">1030</a>
             </li>
             <li>
-              <a href="#">Our Values</a>
+              <a href="#">1070</a>
+            </li>
+          </ul>
+          <ul>
+            <h3>Infos</h3>
+            <li>
+              <a href="#">Datenschutz</a>
+            </li>
+            <li>
+              <a href="#">Impressum</a>
+            </li>
+            <li>
+              <a href="#">Kontakt</a>
             </li>
           </ul>
         </div>
