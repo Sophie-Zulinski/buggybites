@@ -53,7 +53,7 @@ export default function Login() {
             <input type="text" required />
             <span className="highlight"></span>
             <span className="bar"></span>
-            <label>Email</label>
+            <label>Name</label>
           </div>
 
           <div className="group">
