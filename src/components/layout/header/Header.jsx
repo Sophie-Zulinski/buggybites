@@ -72,7 +72,9 @@ export default function Header() {
         <ul className={click ? styles['nav-menuactive'] : styles['nav-menu']}>
           {' '}
           <li className={styles['nav-item']}>
-            <Link href="/">Info</Link>
+            <Link href="https://github.com/Sophie-Zulinski" target="_blank">
+              Über uns
+            </Link>
           </li>
           {data?.user ? (
             <>
@@ -115,13 +117,11 @@ export default function Header() {
               </li>
             </>
           ) : (
-            data === null && (
-              <>
-                <li className={styles['nav-login']}>
-                  <Link href="/login">Login</Link>
-                </li>
-              </>
-            )
+            <>
+              <li className={styles['nav-login']}>
+                <Link href="/login">Login</Link>
+              </li>
+            </>
           )}
         </ul>
         <div className={styles['nav-icon']} onClick={handleClick}>

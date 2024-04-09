@@ -38,6 +38,7 @@ export default function SingleRestaurant({ restaurant }) {
             <div>
               <div className={styles.comments}>
                 <h3>{restaurant.reviews?.length} Bewertung(en)</h3>
+
                 {restaurant.reviews.map((review) => (
                   <div key={review._id}>
                     <StarRatings

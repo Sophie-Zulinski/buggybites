@@ -74,7 +74,7 @@ export default function Register() {
           </div>
           {error && <Error message={error} setError={setError} />}
           <button disabled={loading ? true : false}>
-            {loading ? 'Loading...' : 'Register'}
+            {loading ? 'Loading...' : 'Registrieren'}
           </button>
         </form>
       </div>
