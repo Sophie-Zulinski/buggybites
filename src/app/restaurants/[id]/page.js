@@ -1,7 +1,7 @@
 import apiHostURL from '@/utils/apiHostURL';
 import Image from 'next/image';
 import { notFound } from 'next/navigation';
-import Singlerestaurant from './Singlerestaurant';
+import Singlerestaurant from '../../../components/restaurants/Singlerestaurant';
 
 const getRestaurant = async (id) => {
   const res = await fetch(apiHostURL + '/api/restaurants/' + id, {

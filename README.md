@@ -2,7 +2,7 @@
 
 ## Description:
 
-A web application to fin stroller friendly restaurants in Vienna
+A web application to find stroller friendly restaurants in Vienna
 
 ## Functionalities:
 

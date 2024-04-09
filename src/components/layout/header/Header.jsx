@@ -10,7 +10,6 @@ import styles from './header.module.scss';
 export const dynamic = 'force-dynamic';
 export default function Header() {
   const { data } = useSession();
-  console.log('datahedaer', data);
 
   const logoutHandler = () => {
     signOut();
@@ -95,7 +94,7 @@ export default function Header() {
                   href="/"
                   onClick={toggleDropdown}
                 >
-                  <Image src={logoImg} alt="restaurant" width={30} />
+                  <Image src={logoImg} alt="profile" width={30} />
                 </Link>
 
                 {/* Dropdown menu */}
@@ -104,7 +103,7 @@ export default function Header() {
                     <div className={styles['nav-item']}>
                       {' '}
                       {/* Options in the dropdown */}
-                      <Link href={`/me/update`}>Profil</Link>
+                      <Link href={`/me`}>Profil</Link>
                     </div>
                     <div className={styles['nav-item']}>
                       <Link href="/" onClick={logoutHandler}>

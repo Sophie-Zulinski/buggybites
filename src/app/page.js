@@ -1,7 +1,7 @@
 import apiHostURL from '@/utils/apiHostURL';
 import Link from 'next/link';
+import MakeFavourite from '../components/restaurants/Makefavourite';
 import styles from './page.module.scss';
-import MakeFavourite from './restaurants/[id]/Makefavourite';
 
 const getPosts = async () => {
   const res = await fetch(apiHostURL + '/api/restaurants', {
@@ -42,41 +42,43 @@ export default async function Home() {
           {restaurants.map((restaurant) => (
             <div className={styles.cardtop} key={restaurant._id}>
               {' '}
-              <h2 className={styles.cardheader}>
-                {restaurant.name}{' '}
-                <span>
-                  {' '}
-                  <MakeFavourite restaurant={restaurant} />
-                </span>
-              </h2>
-              <div className="card" key={restaurant._id}>
-                <img
-                  src={
-                    restaurant?.images?.length > 0
-                      ? restaurant.images[0].url
-                      : '/public/next.svg'
-                  }
-                  alt={restaurant?.name}
-                  height={120}
-                  width={150}
-                />
-                <div className="card-content">
-                  <Link
-                    className={styles.link}
-                    href={apiHostURL + `/restaurants/${restaurant?._id}`}
-                  >
-                    Weiterlesen
-                  </Link>
-                  <div className={styles.category}>
-                    Kategorien:{' '}
-                    {restaurant.category.map((category) => (
-                      <div key={category}>
-                        <div>{category}</div>
-                      </div>
-                    ))}
+              <Link href={apiHostURL + `/restaurants/${restaurant?._id}`}>
+                <h2 className={styles.cardheader}>
+                  {restaurant.name}{' '}
+                  <span>
+                    {' '}
+                    <MakeFavourite restaurant={restaurant} />
+                  </span>
+                </h2>
+                <div className="card" key={restaurant._id}>
+                  <img
+                    src={
+                      restaurant?.images?.length > 0
+                        ? restaurant.images[0].url
+                        : '/public/next.svg'
+                    }
+                    alt={restaurant?.name}
+                    height={120}
+                    width={150}
+                  />
+                  <div className="card-content">
+                    <Link
+                      className={styles.link}
+                      href={apiHostURL + `/restaurants/${restaurant?._id}`}
+                    >
+                      Weiterlesen
+                    </Link>
+                    <div className={styles.category}>
+                      Kategorien:{' '}
+                      {restaurant.category.map((category) => (
+                        <div key={category}>
+                          <div>{category}</div>
+                        </div>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
+              </Link>
             </div>
           ))}
         </div>

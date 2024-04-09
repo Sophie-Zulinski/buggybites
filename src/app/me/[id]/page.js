@@ -1,6 +1,6 @@
 import apiHostURL from '@/utils/apiHostURL';
 import { cookies } from 'next/headers';
-import ShowUser from './ShowUser';
+import ShowUser from '../../../components/profile/Favourites';
 
 export const getAuthCookieName = () =>
   process.env.NODE_ENV === 'production'
@@ -35,7 +35,7 @@ export default async function Profile({ params }) {
     }
   };
   const data = await getProfile();
-  console.log('datamepage', data);
+
   return (
     <>
       <ShowUser data={data} />

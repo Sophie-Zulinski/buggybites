@@ -6,7 +6,7 @@ export default function Footer() {
       <div className={styles.top}>
         <div className={styles.pages}>
           <ul>
-            <h3>Buggy Bites</h3>
+            <h3>BuggyBites</h3>
             <li>
               <a href="#">Home</a>
             </li>
