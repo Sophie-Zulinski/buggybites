@@ -33,7 +33,7 @@ export interface IRestaurant extends Document {
   ratings: number;
   numOfReviews: number;
   images: IImage[];
-  category: string; // ? maybe delete []?
+  category: [string]; // ? maybe delete []?
   reviews: IReview[];
   user: [mongoose.Schema.Types.ObjectId];
   createdAt: Date;
@@ -84,7 +84,7 @@ const restaurantSchema: Schema<IRestaurant> = new Schema({
   ],
 
   category: {
-    type: String,
+    type: [String],
     required: [true, 'please enter category'],
   },
   reviews: [

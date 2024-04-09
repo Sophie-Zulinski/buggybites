@@ -12,6 +12,7 @@ export default function MakeFavourite({ restaurant }) {
   const router = useRouter();
   const { data } = useSession();
   const session = data;
+
   const isFavourite = restaurant.user.some((x) => x === session?.user._id);
 
   return (
@@ -39,13 +40,14 @@ export default function MakeFavourite({ restaurant }) {
             setError(data.error);
             return;
           }
-          if (!session.user._id)
-            toast.error(
-              'Bitte melden Sie sich an um Favoriten speichern zu können',
-            );
+          if (!data) {
+            router.push('/login');
+          }
 
           if (data) {
             router.refresh();
+          } else {
+            router.push('/login');
           }
         }}
       >

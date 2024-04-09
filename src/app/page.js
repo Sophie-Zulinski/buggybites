@@ -25,8 +25,8 @@ export default async function Home() {
             <h1>Willkommen bei BuggyBites</h1>
             <div>
               Finde eine Auswahl an kinderwagenfreundlichen Lokalen in Wien.
-              Melde dich an um deine Favoriten zu speichern un die Lokale zu
-              bewerten.
+              Melde dich gleich an um deine Favoriten zu speichern und die
+              Lokale zu bewerten.
             </div>
             <Link className={styles.btn} href="/login">
               Login
@@ -37,6 +37,7 @@ export default async function Home() {
         <div className={styles.title}>
           <h2>Alle Lokale</h2>
         </div>
+
         <div className={styles.grid}>
           {restaurants.map((restaurant) => (
             <div className={styles.cardtop} key={restaurant._id}>
@@ -66,7 +67,14 @@ export default async function Home() {
                   >
                     Weiterlesen
                   </Link>
-                  <p>Kategorien: {restaurant.category}</p>
+                  <div className={styles.category}>
+                    Kategorien:{' '}
+                    {restaurant.category.map((category) => (
+                      <div key={category}>
+                        <div>{category}</div>
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
             </div>

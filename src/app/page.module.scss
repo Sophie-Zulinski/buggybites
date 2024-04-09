@@ -27,6 +27,10 @@ $primary-color: rgb(255, 100, 100);
   padding: 1.1rem;
   font-size: 18px;
 }
+.category {
+  margin: 2rem;
+  color: rgb(69, 83, 89);
+}
 /* Mobile */
 @media (max-width: 1000px) {
   .content {
@@ -63,6 +67,7 @@ $primary-color: rgb(255, 100, 100);
   color: white;
   background-color: #739667;
   padding: 20px;
+  justify-content: center;
 }
 
 /* Button */
@@ -77,6 +82,7 @@ $primary-color: rgb(255, 100, 100);
   color: white;
   font-family: inherit;
   text-align: center;
+  margin-top: 20px;
 
   cursor: pointer;
   transition: all 0.3s ease;
