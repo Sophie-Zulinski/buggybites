@@ -4,9 +4,7 @@ import { restaurants } from './data';
 
 const seedRestaurants = async () => {
   try {
-    await mongoose.connect(
-      'mongodb+srv://sophiezulinski:ZjqhOlFIOpC6OWJ4@buggybites03.ywnunrb.mongodb.net/?retryWrites=true&w=majority&appName=BuggyBites03',
-    );
+    await mongoose.connect(process.env.MONGO_URL);
     await Restaurant.deleteMany();
     console.log('Restaurants are deleted');
     await Restaurant.insertMany(restaurants);
